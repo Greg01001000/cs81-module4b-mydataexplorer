@@ -25,17 +25,17 @@ const weekData = [
 // is helping.
 
 
-function findHighestScreenTime(log) {
-    let maxTime = Math.max(...log.map(item => item["screenTime"]));
+function highestDay(log, key) {
+    let maxValue = Math.max(...log.map(item => item[key]));
 
-    // Build string containing all days with highest screen time
-    let maxDayScreenTime = "";
+    // Build string containing all days with highest value of parameter key
+    let maxDayValue = "";
     for (let entry of log) {
-        if (entry["screenTime"] == maxTime) {
-            maxDayScreenTime += entry["day"] + ": " + maxTime + "\n";
+        if (entry[key] == maxValue) {
+            maxDayValue += entry["day"] + ": " + maxValue + "\n";
         }
     }
-    return maxDayScreenTime; 
+    return maxDayValue; 
 }
 
 
@@ -137,10 +137,13 @@ function correlateCaffeineToFocus(log) {
     return msg + correlation.toFixed(2);
 }
 
+
 console.log("Analyzing Greg's Data Journal...\n")
 console.log("Day(s) with max screen time in hours:")
-console.log(findHighestScreenTime(weekData));
+console.log(highestDay(weekData, "screenTime"));
 console.log("Average hours of sleep per night: " + averageSleep(weekData).toFixed(1));
 console.log("\nMost frequent mood(s) with number of occurrences:")
 console.log(mostFrequentMood(weekData));
 console.log(correlateCaffeineToFocus(weekData));
+console.log("\nDay(s) with best focus level:")
+console.log(highestDay(weekData, "focusLevel"));
