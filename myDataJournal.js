@@ -1,3 +1,5 @@
+// CS 81 Module 4B: My Personal Data Objects, by GregH, 7/8/25
+// https://github.com/Greg01001000/cs81-module4b-mydataexplorer
 
 const weekData = [
   { day: "Monday", sleepHours: 8, screenTime: 10, mood: "fair", caffeineIntake: 0, focusLevel: 9 },
